@@ -8,7 +8,16 @@
 // getEmailDomain("n.eeken@novi-education.nl") geeft novi-education.nl
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
-
+let domainChecker = ' ';
+function getEmailDomain(mail) {
+    domainChecker = mail.split('@'); {
+    }
+    return console.log(domainChecker[1]);
+}
+//getEmailDomain('t.mellink@novi.nl');
+//getEmailDomain('n.eeken@novi-education.nl');
+//getEmailDomain('a.wiersma@outlook.com');
+//getEmailDomain('zana@cleancflo.nl');
 
 
 
@@ -19,7 +28,22 @@
 // typeOfEmail("t.mellink@novi.nl") geeft geeft "Medewerker"
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
-
+let splitMail = ' ';
+function typeOfEmail(mail) {
+    splitMail = mail.split('@');
+    if (splitMail[1] === 'novi-education.nl') {
+        return console.log("Student");
+    } if (splitMail[1] === 'novi.nl') {
+        return console.log("Medewerker");
+    } else {
+    return console.log("Extern")
+    }
+}
+//typeOfEmail('n.eeken@novi-education.nl');
+//typeOfEmail('t.mellink@novi.nl');
+//typeOfEmail('novi.nlaapjesk@outlook.com');
+//typeOfEmail('a.wiersma@outlook.com');
+//typeOfEmail('zana@cleancflo.nl');
 
 
 /* Opdracht  3 */
@@ -34,3 +58,18 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+function checkEmailValidity(mail) {
+    if (mail.includes(',')) {
+        return console.log(false)
+    } if (mail.includes('@') && mail.charAt(mail.length-1) != '.') {
+        return console.log(true)
+    } else {
+        console.log(false)
+    }
+}
+checkEmailValidity('n.eeken@novi.nl');
+checkEmailValidity('tessmellink@novi.nl');
+checkEmailValidity('n.eekenanovi.nl');
+checkEmailValidity('n.eeken@novinl.');
+checkEmailValidity('tessmellink@novi,nl');
